@@ -1,7 +1,18 @@
-require 'sinatra/base'
+require 'sinatra'
 
-class App < Sinatra::Base
+class App < Sinatra::Application
+  set :tasks, []
+
   get '/' do
-    "welcome"
+    erb :index, locals: {:tasks => settings.tasks}
+  end
+
+  get '/add' do
+    erb :add
+  end
+
+  post '/' do
+    settings.tasks << params[:new_task]
+    redirect '/'
   end
 end
