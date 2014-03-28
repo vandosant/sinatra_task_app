@@ -2,8 +2,8 @@
 <body>
 <a href="/add">Add a Task</a>
 <ul>
-<% tasks.each do |item| %>
-  <li><%= item %></li>
+<% tasks.each_with_index do |item, index| %>
+  <li><%= item %> - <a href="/<%= index %>" id="show_<%= index %>">Show Item</a></li>
 <% end %>
 </ul>
 </body>
