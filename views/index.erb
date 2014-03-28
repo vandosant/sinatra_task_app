@@ -1,0 +1,13 @@
+<html>
+<body>
+<form method="post" action="/">
+  <input type="text" name="new_task">
+  <button type="submit">Create Task</button>
+</form>
+<ul>
+  <% TASKS.each do |task| %>
+    <li><%= task %></li>
+  <% end %>
+</ul>
+</body>
+</html>
