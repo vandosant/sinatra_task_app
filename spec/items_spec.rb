@@ -3,8 +3,8 @@ require_relative '../app'
 
 Capybara.app = App
 
-feature "when managing items" do
-  scenario "user can create a new task" do
+feature "item management" do
+  scenario "user is able to create a new task" do
     visit '/'
 
     click_link("Add a Task")
@@ -14,7 +14,7 @@ feature "when managing items" do
     expect(page).to have_content("buy milk")
   end
 
-  scenario "user can view task details" do
+  scenario "user is able to view task details" do
     visit '/'
 
     click_link("Add a Task")
