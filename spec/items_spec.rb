@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'capybara/rspec'
 require_relative '../app'
 
@@ -21,8 +22,20 @@ feature "item management" do
     fill_in "new_task", with: "buy cheese"
     click_on "Create Task"
 
-    click_on "show_1"
+    click_on "show buy cheese"
 
     expect(page).to have_content("buy cheese")
+  end
+
+  scenario "user is able to complete a task" do
+    visit '/'
+
+    click_link("Add a Task")
+    fill_in "new_task", with: "buy bread"
+    click_on "Create Task"
+
+    click_on "complete buy bread"
+
+    expect(page).to_not have_content("buy bread")
   end
 end

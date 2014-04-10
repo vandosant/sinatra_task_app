@@ -16,6 +16,12 @@ class App < Sinatra::Application
     redirect '/'
   end
 
+  delete '/:id' do
+    my_index = params[:id].to_i
+    settings.tasks.delete_at(my_index)
+    redirect '/'
+  end
+
   get '/:id' do
     my_id = params[:id]
     my_item = settings.tasks[params[:id].to_i]
