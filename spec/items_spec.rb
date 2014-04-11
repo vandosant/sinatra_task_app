@@ -38,4 +38,19 @@ feature "item management" do
 
     expect(page).to_not have_content("buy bread")
   end
+
+  scenario "user is able to rename a task" do
+    visit '/'
+
+    click_link("Add a Task")
+    fill_in "new_task", with: "buy eggs"
+    click_on "Create Task"
+
+    click_on "show buy eggs"
+    fill_in "renamed_task", with: "buy pasta"
+    click_on "Rename Task"
+
+    expect(page).to_not have_content("buy eggs")
+    expect(page).to have_content("buy pasta")
+  end
 end
