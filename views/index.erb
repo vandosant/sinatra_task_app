@@ -2,7 +2,7 @@
 <ul>
   <% tasks.each_with_index do |item, index| %>
     <li><%= item %> - <a href="/<%= index %>" id="show <%= item %>">Show Item</a> -
-      <form method="post" action="/">
+      <form method="post" action="/<%= index %>">
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit" value="<%= index %>" id="complete <%= item %>">complete</button>
       </form>
