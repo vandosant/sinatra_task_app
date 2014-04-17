@@ -28,7 +28,7 @@ class App < Sinatra::Application
     erb :show, locals: {:id => my_id, :item => my_item}
   end
 
-  post '/show/:id' do
+  put '/show/:id' do
     my_id = params[:id].to_i
     settings.tasks[my_id] = params[:renamed_task]
     redirect '/'
